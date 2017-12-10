@@ -1,0 +1,72 @@
+<!-- index.html -->
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<head>
+  <!-- META -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+
+  <title>Node/Angular Image Scrapper App</title>
+
+  <!-- SCROLLS -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
+  <style>
+  html                    { overflow-y:scroll; }
+  body                    { padding-top:50px; }
+  #scrapper-list              { margin-bottom:30px; }
+  </style>
+
+  <!-- SPELLS -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+  <script src="core.js"></script>
+
+
+</head>
+<html ng-app="keyScrap">
+
+<!-- SET THE CONTROLLER AND GET ALL Keyword -->
+<body ng-controller="mainController">
+  <div class="container">
+
+    <!-- HEADER -->
+    <div class="jumbotron text-center">
+      <h1>Google Image Scraper <span class="label label-info"></span></h1>
+    </div>
+
+    <!-- Keywords LIST -->
+    <div id="scrapper-list" class="row">
+      <div class="col-sm-4 col-sm-offset-4">
+        <h2>Scraped Keywords </h1>
+          <!-- LOOP OVER THE keywords IN $scope.keywords -->
+          <div ng-repeat="keyword in keywords" class="col-sm-offset-1">
+            <label>
+              <h4><li><a href="/key.html?{{keyword.name}}">{{ keyword.name }}</a></li></h4>
+
+            </label>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- FORM TO Add Keyword -->
+      <div id="keyword-form" class="row">
+        <div class="col-sm-8 col-sm-offset-2 text-center">
+          <form>
+            <div class="form-group">
+
+              <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+              <h5>Please wait 5 seconds after adding a new Keyword<h5>
+                <input type="text" class="form-control input-lg text-center" placeholder="Enter a new Keyword" ng-model="formData.text" required>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg" ng-click="createKeyword()">Add</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </body>
+    </html>

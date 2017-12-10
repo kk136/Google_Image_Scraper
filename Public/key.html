@@ -1,0 +1,44 @@
+<!doctype html>
+
+
+<body>
+  <div id="div_wrapper">
+    <div id="div_header">
+      <h1>Scraped Images</h1>
+    </div>
+    <div id="div_picture">
+
+    </div>
+  </div>
+</body>
+
+
+
+
+<script>
+var url = location.href;
+var key = url.substring(url.indexOf("?")+1);
+console.log (key);
+
+function placeImage(x)
+{
+
+  var div = document.getElementById("div_picture");
+
+  div.innerHTML = ""; // clear images
+
+  for (counter=1;counter<=x;counter++) {
+    var imagem=document.createElement("img");
+    https://s3.amazonaws.com/kk136/Chow/Chow_0.jpg
+
+    imagem.src="https://s3.amazonaws.com/kk136/"+key+"/"+key+"_"+counter+".jpg";
+    div.appendChild(imagem);
+  }
+}
+
+window.onload = function() {
+
+  placeImage(15);
+};
+
+</script>
